@@ -30,11 +30,11 @@ def shop_trip() -> None:
             )
             continue
 
+        home_location = customer.location.copy()
         print(f"{customer.name} rides to {cheapest_shop.name}")
         customer.ride_to(cheapest_shop.location)
         cheapest_shop.print_receipt(customer.name, customer.product_cart)
         print(f"{customer.name} rides home")
-        home_location = customer.location.copy()
         customer.ride_to(home_location)
         customer.spend_money(cheapest_trip_cost)
         print(f"{customer.name} now has {customer.money:.2f} dollars")
